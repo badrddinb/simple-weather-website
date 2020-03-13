@@ -22,7 +22,9 @@ const forecast = (latitude, longitude, callback) => {
                     error: bodyError,
                     daily: {
                         data: [{
-                            summary
+                            summary,
+                            temperatureHigh,
+                            temperatureLow
                         }]
                     },
                     currently: {
@@ -34,7 +36,10 @@ const forecast = (latitude, longitude, callback) => {
                 if (bodyError) {
                     callback('Error: Unable to find coordinate! Try another search.', undefined)
                 } else {
-                    callback(undefined, `${summary} It is currently ${temperature} degress out. There is a ${rainProbability}% change of rain.`)
+                    callback(undefined, `${summary} It is currently ${temperature}°C.\
+                    There is a ${rainProbability}% change of rain.\
+                    The highest temperature is ${temperatureHigh}°C.\
+                    The lowest temperature is ${temperatureLow}°C.`)
                 }
             } catch (error) {
                 callback('Unable to find data!', undefined)
