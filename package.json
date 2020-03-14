@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon -e js,hbs --watch src/app.js --exec node src/app.js"
+    "dev": "nodemon src/app.js -e js,hbs"
   },
   "keywords": [],
   "author": "",
